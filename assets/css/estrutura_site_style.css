@@ -1,0 +1,265 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:#000000 linear-gradient(#130013 ,#000000) no-repeat;
+}
+
+.parent-container{
+    max-width: 768px;
+    background-image: url('../img/photos/background.png');
+    background: repeat center cover fixed;
+    box-shadow:0 0 50px 50px rgba(0, 0, 0, 0.4);
+
+    margin:auto;
+    padding: 20px;
+    border:2px solid white;
+    border-radius: 15px;
+
+     mask-image: linear-gradient(black, black);
+    -webkit-mask-image: linear-gradient(black, black);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
+}
+
+.grid-main{
+    display: grid;
+    justify-items: center;
+
+}
+
+.notific-music{
+    position: relative;
+    overflow: hidden;
+
+    width: clamp(127px,80%,300px);
+    height: clamp(50px, 5vh, 70px);
+
+    padding: 8px;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+
+    animation: cair-notificacao 1.5s;
+}
+
+
+.notific-music::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:url("../img/music/img-music.jpg") center center ;
+    background-color: rgb(44, 44, 44) ;
+    filter: blur(5px) brightness(0.4);
+    transform: scale(1.1); /* evita bordas cortadas */
+    z-index: -1;
+}
+
+
+.notific-music .container-items{
+    /*background: gray;*/
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+}
+
+.container-items .img-music{
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 8px;
+}
+
+.container-items .container-status{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    /*background: green;*/
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+.container-status p{
+    width: 100%;
+    white-space: nowrap;
+    font-size: clamp(10px,3vw,16px);
+    text-align: center;
+}
+
+.container-status .name-music{
+    font-weight: bold;
+}
+
+.container-status .name-compositor{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.slider{
+    width: clamp(160px,50vw,300px);
+    margin-top: 10px;
+    border: 2px solid white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.slider .slides{
+    width: 400%;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slides .slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3) ,rgba(0, 0, 0, 0) ,rgb(0, 0, 0, 1) ); /* Cor sólida com 50% opacidade */
+  z-index: 1; /* Garante que fique na frente */
+}
+
+
+.slide img{
+    width:clamp(160px,50vw,300px);
+}
+
+#radio1:checked ~ .first{
+    margin-left:0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+#radio5:checked ~ .first{
+    margin-left: -100%;
+}
+#radio6:checked ~ .first{
+    margin-left: -125%;
+}
+#radio7:checked ~ .first{
+    margin-left: -150%;
+}
+
+.navigation-auto div{
+    border:2px solid white;
+    padding:5px;
+    border-radius:10px;
+    cursor: pointer;
+    transition:1s;
+    z-index: 2;
+}
+
+.navigation-auto{
+    position: absolute;
+    width:clamp(160px,50vw,300px);
+    margin-top: 5px;
+    display:flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right:  3px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: white;
+    width:20px;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: white;
+    width:20px;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: white;
+    width:20px;
+}
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background-color: white;
+    width:20px;
+}
+#radio5:checked ~ .navigation-auto .auto-btn5{
+    background-color: white;
+    width:20px;
+}
+#radio6:checked ~ .navigation-auto .auto-btn6{
+    background-color: white;
+    width:20px;
+}
+#radio7:checked ~ .navigation-auto .auto-btn7{
+    background-color: white;
+    width:20px;
+}
+
+.parent-container .label-loveu{
+    font-size: clamp(22px,10vw,25px);
+    margin-top: 15px;
+}
+
+.parent-container .contador-love{
+    font-size: clamp(16px,10vw,18px);
+    margin-top: 5px;
+}
+
+.parent-container .declaracao{
+    width:clamp(50px,80vw,500px);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 20px;
+    font-size: 16px;
+
+}
+.parent-container .aviso{
+    width:clamp(50px,80vw,500px);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 18px;
+    font-size: 14px;
+
+}
+

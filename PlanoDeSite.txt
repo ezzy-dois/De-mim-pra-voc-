@@ -1,0 +1,19 @@
+Inicio do site:
+Ele iniciaria com um pedido de namoro
+[
+	Hoje é o grande dia 
+	Depois de tanta enrolação
+	Preparada para o pedido
+	Você aceita namorar comigo?
+	Yes( ) No( )
+]
+Obs: Caso ela fale que não o botão de Yes o mesmo iria aumenta e o pedido mudaria para frases com (Resposta errada, Pense mais um pouquinho, tem Certeza disso, etc..)
+
+Quando ela apertasse no botão Yes (aceitar o pedido) isso transferiria ela para outra pagina que mostraria:
+
+Uma caixa com um play com uma musica
+Fotos do Namorados
+Namorados há: Data de Namoro
+
+texto com declaração.
+	

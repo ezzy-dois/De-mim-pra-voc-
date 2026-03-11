@@ -62,10 +62,10 @@ function mostrarDiferenca(dataInicio, elementoId) {
 
         const texto =
             `${anos > 0 ? `${anos} ano${anos > 1 ? 's,' : ','}` : ''} ` +
-            `${meses > 0 ? `${meses} mês${meses > 1 ? 'es,' : ','}` : ''} ` +
+            `${meses > 0 ? `${meses} mes${meses > 1 ? 'es,' : ','}` : ''} ` +
             `${dias > 0 ? `${dias} dia${dias > 1 ? 's,' : ','}` : ''} ` +
-            `${horas} hr${horas > 1 ? 's,' : ','} ` +
-            `${minutos} min, ` +
+            `${horas > 0 ? `${horas} hr${horas > 1 ? 's,' : ','}` : ''} ` +
+            `${minutos > 0 ? `${minutos} min, ` : ''}` +
             `${segundos} s`;
 
         document.getElementById(elementoId).textContent = texto;

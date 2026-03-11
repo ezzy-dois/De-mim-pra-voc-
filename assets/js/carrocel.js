@@ -14,20 +14,25 @@ function nextImage(){
     document.getElementById("radio" + count).checked = true;
 }
 
-function mostrarDiferenca(dataInicio, dataFim, elementoId) {
+function mostrarDiferenca(dataInicio, elementoId) {
+
+    const inicio = new Date(dataInicio);
+
     function atualizar() {
-        let inicio = new Date(dataInicio);
-        let fim = dataFim ? new Date(dataFim) : new Date();
 
-        if (fim < inicio) {
-            [inicio, fim] = [fim, inicio];
+        const agora = new Date();
+
+        let anos = agora.getFullYear() - inicio.getFullYear();
+        let meses = agora.getMonth() - inicio.getMonth();
+        let dias = agora.getDate() - inicio.getDate();
+        let horas = agora.getHours() - inicio.getHours();
+        let minutos = agora.getMinutes() - inicio.getMinutes();
+        let segundos = agora.getSeconds() - inicio.getSeconds();
+
+        if (segundos < 0) {
+            segundos += 60;
+            minutos--;
         }
-
-        let anos = fim.getFullYear() - inicio.getFullYear();
-        let meses = fim.getMonth() - inicio.getMonth();
-        let dias = fim.getDate() - inicio.getDate();
-        let horas = fim.getHours() - inicio.getHours();
-        let minutos = fim.getMinutes() - inicio.getMinutes();
 
         if (minutos < 0) {
             minutos += 60;
@@ -41,10 +46,11 @@ function mostrarDiferenca(dataInicio, dataFim, elementoId) {
 
         if (dias < 0) {
             const ultimoDiaMesAnterior = new Date(
-                fim.getFullYear(),
-                fim.getMonth(),
+                agora.getFullYear(),
+                agora.getMonth(),
                 0
             ).getDate();
+
             dias += ultimoDiaMesAnterior;
             meses--;
         }
@@ -53,22 +59,23 @@ function mostrarDiferenca(dataInicio, dataFim, elementoId) {
             meses += 12;
             anos--;
         }
-        //${anos} ano${anos > 1 ? 's' : ''}
-        const texto = 
+
+        const texto =
             `${anos > 0 ? `${anos} ano${anos > 1 ? 's,' : ','}` : ''} ` +
             `${meses > 0 ? `${meses} mês${meses > 1 ? 'es,' : ','}` : ''} ` +
             `${dias > 0 ? `${dias} dia${dias > 1 ? 's,' : ','}` : ''} ` +
             `${horas} hr${horas > 1 ? 's,' : ','} ` +
-            `${minutos} min `;
+            `${minutos} min, ` +
+            `${segundos} s`;
 
         document.getElementById(elementoId).textContent = texto;
     }
 
     atualizar();
-    setInterval(atualizar, 60000); // atualiza a cada minuto
+    setInterval(atualizar, 1000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarDiferenca("2025-12-12 16:00", null, "tempo");
+    mostrarDiferenca("2025-12-12 16:00", "tempo");
 });
 

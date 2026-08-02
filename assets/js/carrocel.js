@@ -79,3 +79,16 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarDiferenca("2025-12-12 16:00", "tempo");
 });
 
+
+const audio = document.getElementById("musica");
+const entrar = document.getElementById("entrar");
+
+entrar.onclick = async () => {
+    try {
+        await audio.play();
+        document.getElementById("inicio").style.display = "none";
+    } catch (e) {
+        console.log(e);
+    }
+    entrar.style = "display: none"
+};

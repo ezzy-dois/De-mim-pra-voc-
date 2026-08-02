@@ -21,6 +21,35 @@ body{
     background:#000000 linear-gradient(#130013 ,#000000) no-repeat;
 }
 
+.contaner-acessar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px); /* Safari */
+
+    background: rgba(17, 0, 16, 0.2); /* Necessário para o efeito aparecer */
+    position: fixed;
+    z-index: 100;
+}
+
+.contaner-acessar .btn-acessar{
+    width: 200px;
+    height: 60px;
+    background:#130013 linear-gradient(#330033 ,#170018) no-repeat;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid purple
+}
+
+.contaner-acessar .btn-acessar:hover{
+    cursor: pointer;
+    border: 2px solid rgb(255, 0, 255)
+}
+
 .parent-container{
     max-width: 768px;
     background-image: url('../img/photos/background.png');
